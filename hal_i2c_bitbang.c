@@ -25,15 +25,13 @@
  * THIS SOFTWARE.
  */
 
-#include <asf.h>
 #include <string.h>
 #include <stdio.h>
 #include "atca_hal.h"
 #include "atca_device.h"
 #include "hal_i2c_bitbang.h"
 #include "atca_execution.h"
-
-
+#include "i2c_bitbang_samd21.h"
 /**
  * \defgroup hal_ Hardware abstraction layer (hal_)
  *
@@ -261,8 +259,8 @@ ATCA_STATUS hal_i2c_init(void *hal, ATCAIfaceCfg *cfg)
         // Bus isn't being used, enable it
 
         // assign GPIO pins
-        i2c_hal_data[cfg->atcai2c.bus].pin_sda = i2c_buses_default.pin_sda[cfg->atcai2c.bus];
-        i2c_hal_data[cfg->atcai2c.bus].pin_scl = i2c_buses_default.pin_scl[cfg->atcai2c.bus];
+     //   i2c_hal_data[cfg->atcai2c.bus].pin_sda = i2c_buses_default.pin_sda[cfg->atcai2c.bus];
+     //   i2c_hal_data[cfg->atcai2c.bus].pin_scl = i2c_buses_default.pin_scl[cfg->atcai2c.bus];
 
         i2c_set_pin(i2c_hal_data[cfg->atcai2c.bus].pin_sda, i2c_hal_data[cfg->atcai2c.bus].pin_scl);
         i2c_enable();
